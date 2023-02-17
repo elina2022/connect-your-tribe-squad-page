@@ -13,6 +13,7 @@
   * [Licentie](#licentie)
 
 ## Beschrijving
+Lala
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
