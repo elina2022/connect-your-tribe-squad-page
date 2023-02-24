@@ -1,0 +1,63 @@
+<%- include("./partials/head.ejs") %>
+<div id="noise-overlay"></div>
+<div id="memberGradient1"></div>
+<div id="memberGradient2"></div>
+<div class="containerDetail">
+    <div class="nameDetailPart4"></div>
+    <div class="nameDetailPart5"></div>
+    <h1 class="nameDetail"><%= data.member.name %> <%= data.member.surname %>
+        <div class="nameDetailPart1"></div>
+        <div class="nameDetailPart2"></div>
+        <div class="nameDetailPart3"></div>
+    </h1>
+    <div class="containerImageDetail">
+        <% if(data.member.avatar){%>
+            <div class="imageDetailOverlay"></div>
+            <img class="imageDetail" src="<%= data.member.avatar %>" alt="">
+            <% } else{ %>
+            <model-viewer id="bodyDetail" src="/assets/body/scene.gltf"  alt="Default avatar" auto-rotate></model-viewer>
+        <% } %>
+    </div>
+    <p class="statusDetail"><%- data.member.bio.html.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/g, '') %>
+
+
+
+
+
+    </p>
+    <p class="squadDetail">
+        <% let squadsArr = []
+        for(let i = 0; i < data.member.squads.length; i++){ 
+            squadsArr.push(data.member.squads[i].name)
+        } 
+        let squadsArrJoined = squadsArr.join(", ")
+        %>
+        <%= squadsArrJoined %>
+    </p>
+    <p class="cohortDetail">
+        <% let cohortArr = []
+        for(let i = 0; i < data.member.squads.length; i++){ 
+            cohortArr.push(data.member.squads[i].cohort)
+        } 
+        let cohortArrJoined = cohortArr.join(", ")
+        %>
+        <%= cohortArrJoined %>
+    </p>
+    <div class="containerFingerDetail">
+        <img class="fingerDetail" src="/assets/fingerprint.png" alt="">
+        <div class="fingerDetailPart1"></div>
+        <div class="fingerDetailPart2"></div>
+        <div class="fingerDetailPart3"></div>
+        <div class="fingerDetailPart4"></div>
+        <div class="fingerDetailPart5"></div>
+        <div class="fingerDetailPart6"></div> 
+        <div class="fingerDetailPart7"></div> 
+    </div>
+</div>
+
+
+
+
+    <!-- <img src="/assets/fingerprint.png" alt=""> -->
+    <!-- <model-viewer id="earth" src="/assets/earth/scene.gltf" alt="Earth" auto-rotate></model-viewer> -->
+<%- include("./partials/foot.ejs") %>

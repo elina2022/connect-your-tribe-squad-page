@@ -8,7 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,8 +27,15 @@
   },
   "homepage": "https://github.com/fdnd-task/connect-your-tribe-squad-page#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.9.2",
+    "morgan": "^1.10.0",
+    "swup": "^3.0.4",
+    "three": "^0.149.0"
   }
 }

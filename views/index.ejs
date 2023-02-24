@@ -1,0 +1,118 @@
+<%- include("./partials/head.ejs") %>
+
+<p class="fontTestAll" id="fontTest1">Testing fonts</p>
+<p class="fontTestAll" id="fontTest2">Testing fonts</p>
+<p class="fontTestAll" id="fontTest3">Testing fonts</p>
+<p class="fontTestAll" id="fontTest4">Testing fonts</p>
+<p class="fontTestAll" id="fontTest5">Testing fonts</p>
+<p class="fontTestAll" id="fontTest6">Testing fonts</p>
+<p class="fontTestAll" id="fontTest7">Testing fonts</p>
+
+<div id="noise-overlay"></div>
+<!-- <div class="noise-overlay-gradient grad1"></div>
+<div class="noise-overlay-gradient grad2"></div>
+<div class="noise-overlay-gradient grad3"></div>
+<div class="noise-overlay-gradient grad4"></div>
+<div class="noise-overlay-gradient grad5"></div> -->
+
+<!-- when sending a form using get, the name and value go in the url -->
+<!-- then in js the url of the needed data can be fetched using those values -->
+<form action="/" method="get">
+    <input class="submit" type="radio" id="a" name="squad" value="squad-a-2022">
+    <input class="submit" type="radio" id="b" name="squad" value="squad-b-2022">
+    <input class="submit" type="radio" id="c" name="squad" value="squat-c-2022">
+    <input class="submit" type="radio" id="founders" name="squad" value="founders-2021">
+</form>
+
+<div class="containerHeader-<%= showingSquadOrNot %>" >
+    <div class="containerH1H2-<%= showingSquadOrNot %>">
+        <h1 id="h1-<%= showingSquadOrNot %>">Discover FDND's people</h1>
+        <% if(data.squad){ %>
+            <h2 id="h2NonHero<%= showingSquadOrNot %>">Why is it so dark in here... maybe try hovering?</h2>
+            <% } else {%>
+                <h2 id="h2Hero<%= showingSquadOrNot %>">Select a squad and explore the faces of our community</h2>
+        <% } %>
+    </div>
+        <h3 id="h3-<%= showingSquadOrNot %>">
+            <ul class="squadOptionsList-<%= showingSquadOrNot %>">
+                <div class="abc-<%= showingSquadOrNot %>">
+                    <li class="selectedSquad squadOptions-<%= showingSquadOrNot %>">A</li>
+                    <li class="selectedSquad squadOptions-<%= showingSquadOrNot %>">B</li>
+                    <li class="selectedSquad squadOptions-<%= showingSquadOrNot %>">C</li>
+                </div>
+                <div id="glowStickAdd1-<%= showingSquadOrNot %>" ></div>
+                <div id="glowStickAdd2-<%= showingSquadOrNot %>" ></div>
+                <hr id="glowStick-<%= showingSquadOrNot %>">
+                <li id="founders-<%= showingSquadOrNot %>" class="selectedSquad squadOptions-<%= showingSquadOrNot %>">Founders</li>
+            </ul>
+        </h3>
+</div>
+<!-- <h1 class="hello" data-test="copy this please">hello</h1> -->
+<div class="containerAllMembers">
+    <% if(data.squad){ %>
+        <% data.squad.members.forEach(member => {%>
+            <% let bgMember = (!member.avatar) ? "bg" : "" %>
+            <a href="<%= "member/" + member.slug %>">
+                <div class="containerMember <%= bgMember %>">
+                    <div id="generalPart1"></div>
+                    <div id="part1"></div>
+                    <div id="part2"></div>
+                    <div id="part3"></div>
+                    <div id="part4"></div>
+                    <div id="part5">
+                        <div class="containerLights">
+                            <div class="lights light1" <% if(member.colour){%>style="background-color:<%= member.colour.hex %>;"<% } %>></div>
+                            <div class="lights light2" <% if(member.colour){%>style="background-color:<%= member.colour.hex %>;"<% } %>></div>
+                            <div class="lights light3" <% if(member.colour){%>style="background-color:<%= member.colour.hex %>;"<% } %>></div>
+                        </div>
+                    </div>
+                    <% if(member.avatar){%>
+                        <div class="avatarOverlay"></div>
+                        <hr id="glowStickAvatar">
+                        <img class="avatar" src="<%= member.avatar %>" alt="">
+                        <% } else{ %>
+                        <div class="avatarOverlay">
+                            <hr id="glowStickAvatar">
+                        </div>
+                        <model-viewer id="bodyMemberPage" src="/assets/body/scene.gltf"  alt="Default avatar" auto-rotate></model-viewer>
+                    <% } %>
+                    <p class="surnameName"><%= member.surname %><br><%= member.name %>
+                        <div>
+
+                            <!-- <#% if(member.gitHubHandle && member.gitHubHandle.includes("github")){ %> -->
+                                <!-- <a href="<#%= member.gitHubHandle %>"> -->
+                                    <img id="githubIcon" src="/assets/github.svg" alt="" width="10px">
+                                <!-- </a> -->
+                            <!-- <#% } else if(member.gitHubHandle){%> -->
+                                <!-- <a href="https://github.com/<#%= member.gitHubHandle %>"> -->
+                                    <!-- <img id="githubIcon" src="/assets/github.svg" alt="" width="10px"> -->
+                                <!-- </a> -->
+                            <!-- <#% } %> -->
+                                
+
+                            <!-- <%# if(member.website){%> -->
+                            <!-- <a href="<%#= member.website %>"> -->
+                                <img id="websiteIcon" src="/assets/website.svg" alt="" width="10px">
+                            <!-- </a> -->
+                            <%# } %>
+
+                        </div>
+                    </p>
+                    <div id="generalPart2"></div>
+                    <div id="part6"></div>
+                    <div id="part7"></div>
+                    <div id="part8"></div>
+                    <div id="part9"></div>
+                    <div id="part10"></div>
+                </div>
+            </a>
+    <% }) %>
+</div>
+
+
+    <!-- <hr id="glowStickBig"> -->
+<% } %>
+
+
+<%- include("./partials/foot.ejs") %>
+    
