@@ -78,24 +78,21 @@
                     <% } %>
                     <p class="surnameName"><%= member.surname %><br><%= member.name %>
                         <div>
-
-                            <!-- <#% if(member.gitHubHandle && member.gitHubHandle.includes("github")){ %> -->
-                                <!-- <a href="<#%= member.gitHubHandle %>"> -->
+                            <% if(member.gitHubHandle && member.gitHubHandle.includes("github")){ %>
+                                <span class="gitHub" href="<%= member.gitHubHandle %>">
                                     <img id="githubIcon" src="/assets/github.svg" alt="" width="10px">
-                                <!-- </a> -->
-                            <!-- <#% } else if(member.gitHubHandle){%> -->
-                                <!-- <a href="https://github.com/<#%= member.gitHubHandle %>"> -->
-                                    <!-- <img id="githubIcon" src="/assets/github.svg" alt="" width="10px"> -->
-                                <!-- </a> -->
-                            <!-- <#% } %> -->
-                                
+                                </span>
+                            <% } else if(member.gitHubHandle){%>
+                                <span class="gitHub" href="https://github.com/<%= member.gitHubHandle %>">
+                                    <img id="githubIcon" src="/assets/github.svg" alt="" width="10px">
+                                </span>
+                            <% } %>
 
-                            <!-- <%# if(member.website){%> -->
-                            <!-- <a href="<%#= member.website %>"> -->
-                                <img id="websiteIcon" src="/assets/website.svg" alt="" width="10px">
-                            <!-- </a> -->
-                            <%# } %>
-
+                            <% if(member.website){%>
+                                <span class="website" href="<%= member.website %>">
+                                    <img id="websiteIcon" src="/assets/website.svg" alt="" width="10px">
+                                </span>
+                            <% } %>
                         </div>
                     </p>
                     <div id="generalPart2"></div>
@@ -112,7 +109,5 @@
 
     <!-- <hr id="glowStickBig"> -->
 <% } %>
-
-
 <%- include("./partials/foot.ejs") %>
     

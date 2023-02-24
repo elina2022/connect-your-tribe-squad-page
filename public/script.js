@@ -24,18 +24,6 @@ for (let i = 0; i < selectSquad.length; i++) {
     })
 }
 
-// const gitHubHandle = $('.copyHandle');
-// gitHubHandle.addEventListener("click", ()=>{
-//         navigator.clipboard.writeText(gitHubHandle.dataset.handle)
-//         console.log("Copied the text: " + gitHubHandle.dataset.handle)
-// })
-
-// const copyTest = $('.hello');
-// copyTest.addEventListener("click", ()=>{
-//         navigator.clipboard.writeText(copyTest.dataset.test)
-//         console.log("Copied the text: " + copyTest.dataset.test)
-// })
-
 const members = $all(".containerMember")
 const glowStickAvatar = $all("#glowStickAvatar")
 const avatarOverlay = $all(".avatarOverlay")
@@ -64,36 +52,20 @@ for (let i = 0; i < members.length; i++) {
 
 
 
+const gitHub = $all('.gitHub')
+for (let i = 0; i < gitHub.length; i++) {
+    gitHub[i].addEventListener('click', () => {
+        event.preventDefault()
+        window.location.href = gitHub[i].getAttribute('href')
+        console.log(gitHub[i].getAttribute('href'))
+    })
+}
 
-
-// const glowStick = document.querySelector("#glowStick")
-// for (let i = 0; i < abc.length; i++) {
-//     selectSquad.forEach(select => {
-//         select.addEventListener("click", () => {
-//             if(! glowStick.classList.contains("animateGlowStick")) {
-//                 glowStick.classList.add("animateGlowStick")
-//                 glowStick.classList.add("animateGlowStickEndpoint")
-//                 console.log("Class added")
-//             } else if(window.location.href.indexOf(abc[i] + "-2022") !== -1 ||
-//                 window.location.href.indexOf(abc[i] + "-2021") !== -1) {
-//                 glowStick.classList.add("animateGlowStickEndpoint")
-//                 console.log("Class added")
-//             } else{
-//                 console.log("Class is already added")
-//             }
-//         })
-//     })
-// }
-
-
-
-// let functionExecuted = false;
-
-// selectSquad.forEach(select => {
-//     select.addEventListener("click", () => {
-//         if (!functionExecuted) {
-//             functionExecuted = true
-//             console.log("hello")
-//         }
-//     })
-// })
+const website = $all('.website')
+for (let i = 0; i < website.length; i++) {
+    website[i].addEventListener('click', () => {
+        event.preventDefault()
+        window.location.href = website[i].getAttribute('href')
+        console.log(website[i].getAttribute('href'))
+    })
+}

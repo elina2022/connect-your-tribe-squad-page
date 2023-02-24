@@ -2,7 +2,12 @@
 <div id="noise-overlay"></div>
 <div id="memberGradient1"></div>
 <div id="memberGradient2"></div>
-<div class="containerDetail">
+<!-- <a href="/<%#= data.member.squad.name %>" style="position: absolute;"> -->
+    <!-- </a> -->
+    <div class="containerDetail">
+        <button class="backButton">Back
+            <div class="containerBackButton"></div>
+        </button>
     <div class="nameDetailPart4"></div>
     <div class="nameDetailPart5"></div>
     <h1 class="nameDetail"><%= data.member.name %> <%= data.member.surname %>
@@ -56,7 +61,14 @@
 </div>
 
 
-
+<script>
+    const $ = element => document.querySelector(element)
+    const back = $(".backButton")
+    back.addEventListener("click", ()=>{
+        console.log("backbutton")
+        window.location.href = document.referrer;
+    })
+</script>
 
     <!-- <img src="/assets/fingerprint.png" alt=""> -->
     <!-- <model-viewer id="earth" src="/assets/earth/scene.gltf" alt="Earth" auto-rotate></model-viewer> -->
