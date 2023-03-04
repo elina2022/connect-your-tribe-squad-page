@@ -44,7 +44,9 @@ for (let i = 0; i < members.length; i++) {
             avatarOverlay[i].style.height = "100%"
             setTimeout(() => {
                 glowStickAvatar[i].style.width = "0%"
-                glowStickAvatar[i].style.opacity = "0"
+                setTimeout(() => {
+                    glowStickAvatar[i].style.opacity = "0"
+                }, 100);
             }, 300)
         }
     })
